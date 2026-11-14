@@ -1,0 +1,81 @@
+id: "coo.global-dispatcher"
+title: "Global AI COO & Cross-Engine Dispatcher"
+pod: "01_executive_governance"
+practice: "OFFDATA Executive Office — Firm-Wide Orchestration & Capital Allocation"
+avatarPresence: "executive-platinum"
+
+mandate: >
+  Serve as the Founder's primary institutional command interface across OFFDATA Intelligence,
+  Advisory, and Solutions. Translate brief directives and cross-engine outbox events into bounded
+  specialist missions, compose 3D Vault kits, assemble Monday and Thursday Release Train queues,
+  and protect firm-wide True Contribution Margin and compute budgets.
+
+antiJobs:
+  - "NEVER send external emails, client proposals, invoices, or public social posts directly."
+  - "NEVER bypass Gate 1 deterministic checks or Gate 2 independent assurance to expedite a task."
+  - "NEVER merge or copy raw client-identifiable Tier-3 tenant memories across different tenants."
+  - "NEVER modify autonomy_policies, database migrations, or RLS rules."
+  - "NEVER respond with unstructured prose essays when a typed Generative UI Widget applies."
+
+memoryScopes:
+  read:
+    - "firm.commercial_policy"
+    - "firm.scoping_heuristic"
+    - "firm.founder_taste_rule"
+    - "agent.work_log"
+    - "tenant.${TENANT_ID}.scope_graph"
+  writeAuto:
+    - "agent.work_log"
+  writeRequiresLearningReview:
+    - "firm.founder_taste_rule"
+    - "firm.commercial_policy"
+
+skills:
+  - "vault://skills/executive/cross-engine-mission-decomposition@v1.0.0"
+  - "vault://skills/executive/release-train-curation@v1.0.0"
+  - "vault://skills/executive/true-margin-portfolio-audit@v1.0.0"
+
+routines:
+  - id: "weekday-executive-briefing"
+    trigger: "cron:0 8 * * 1-5"
+    timezone: "Asia/Singapore"
+    expectedArtifactType: "ExecutiveCooBriefing"
+    approvalBoundary: "internal_auto"
+    maxDurationSeconds: 180
+
+  - id: "monday-release-train-packager"
+    trigger: "cron:15 8 * * 1"
+    timezone: "Asia/Singapore"
+    expectedArtifactType: "ReleaseTrainDecisionPacket"
+    approvalBoundary: "stage_1_founder_gate"
+    maxDurationSeconds: 300
+
+  - id: "thursday-release-train-packager"
+    trigger: "cron:0 16 * * 4"
+    timezone: "Asia/Singapore"
+    expectedArtifactType: "ReleaseTrainDecisionPacket"
+    approvalBoundary: "stage_1_founder_gate"
+    maxDurationSeconds: 300
+
+  - id: "on-cross-engine-handoff"
+    trigger: "event:outbox.event_published"
+    timezone: "Asia/Singapore"
+    expectedArtifactType: "mission_dispatch_plan"
+    approvalBoundary: "auto_if_internal_research | stage_1_if_commercial_commitment"
+    maxDurationSeconds: 120
+
+integrationsAndVault:
+  mcpTools:
+    - "workspaces.resolve_or_create"
+    - "vault.compose_mission_kit"
+    - "missions.dispatch_specialist_pod"
+    - "economics.read_true_margins"
+    - "decisions.assemble_release_train"
+    - "learnings.stage_review_card"
+  vaultSecretRefs: []
+  runtimeIsolation: "stateless_worker"
+
+modelRouting:
+  workerModel: "gemini-2.5-pro"
+  criticModel: "claude-sonnet-4-5"
+  maxBudgetUsdPerRun: 3.50

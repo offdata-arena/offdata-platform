@@ -1,0 +1,42 @@
+# OS & Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Environment & Secrets (Zero-Knowledge Law: never commit live secrets)
+.env
+.env.*
+!.env.example
+
+# Dependencies & Package Managers
+node_modules/
+.pnpm-store/
+
+# Build & Monorepo Cache
+dist/
+build/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+
+# Test, Coverage & Playwright Artifacts
+coverage/
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# Logs & Runtime Temp
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.tmp/
+tmp/
